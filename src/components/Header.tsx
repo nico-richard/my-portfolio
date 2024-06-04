@@ -24,12 +24,6 @@ const Header = () => (
     />
     <h1>Nicolas RICHARD - Full Stack Developer</h1>
     <p>Creating modern and responsive web applications.</p>
-    <NRButton
-      as="link"
-      href="/cv_nicolas_richard.pdf"
-      label="Télécharger mon CV"
-      download
-    />
   </HeaderContainer>
 );
 

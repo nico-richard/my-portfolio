@@ -33,11 +33,11 @@ const NRButtonContainer = styled.section`
     border: none;
     font-size: 1rem;
     font-family: inherit;
-    color: black;
-    background-color: ${({ theme }) => theme.colors.background};
+    background-color: ${({ theme }) => theme.colors.tertiary};
+    color: ${({ theme }) => theme.colors.headerBackground};
     &:hover {
       cursor: pointer;
-      background-color: ${({ theme }) => theme.colors.borderColor};
+      background-color: ${({ theme }) => theme.colors.headerBackgroundHover};
     }
     &.clicked {
       animation: ${pulseAnimation} 0.4s ease-in-out;

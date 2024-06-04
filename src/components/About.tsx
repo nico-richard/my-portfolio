@@ -1,6 +1,26 @@
 "use client";
 
 import styled from "styled-components";
+import NRButton from "./common/Button";
+import SkillCard from "./SkillCard";
+import { FaAngular } from "react-icons/fa";
+import { FaReact } from "react-icons/fa";
+import { FaHtml5 } from "react-icons/fa";
+import { FaCss3 } from "react-icons/fa";
+import { IoLogoJavascript } from "react-icons/io5";
+import { SiTypescript } from "react-icons/si";
+import { RiNextjsLine } from "react-icons/ri";
+import { FaNodeJs } from "react-icons/fa";
+import { SiExpress } from "react-icons/si";
+import { FaPython } from "react-icons/fa";
+import { SiFlask } from "react-icons/si";
+import { FaPhp } from "react-icons/fa";
+import { FaGitlab } from "react-icons/fa";
+import { SiPostgresql } from "react-icons/si";
+import { SiMicrosoftsqlserver } from "react-icons/si";
+import { SiMongodb } from "react-icons/si";
+import { FaDocker } from "react-icons/fa";
+import { FaLinux } from "react-icons/fa";
 
 const AboutContainer = styled.section`
   padding: 2rem;
@@ -11,21 +31,57 @@ const AboutContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  .cv-download {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 80%;
+  }
 `;
 
 const About = () => (
   <AboutContainer id="about">
     <h2>À Propos de Moi</h2>
     <p>Développeur passionné avec plus de 5 ans d&apos;expérience...</p>
-    <h3>Compétences</h3>
-    <ul>
-      <li>Front-end: React, Vue.js, Angular</li>
-      <li>Back-end: Node.js, Express, MongoDB</li>
-      <li>Outils: Git, Docker, AWS</li>
-    </ul>
-    <a href="/cv.pdf" download>
-      Télécharger mon CV
-    </a>
+    <h1>Compétences</h1>
+    <h3>Front-end</h3>
+    <div className="skills">
+      <SkillCard title="Angular" icon={<FaAngular />} />
+      <SkillCard title="React" icon={<FaReact />} />
+      <SkillCard title="HTML" icon={<FaHtml5 />} />
+      <SkillCard title="CSS" icon={<FaCss3 />} />
+      <SkillCard title="JavaScript" icon={<IoLogoJavascript />} />
+      <SkillCard title="TypeScript" icon={<SiTypescript />} />
+    </div>
+    <h3>Back-end</h3>
+    <div className="skills">
+      <SkillCard title="NextJS" icon={<RiNextjsLine />} />
+      <SkillCard title="NodeJS" icon={<FaNodeJs />} />
+      <SkillCard title="Express" icon={<SiExpress />} />
+      <SkillCard title="Python" icon={<FaPython />} />
+      <SkillCard title="Flask" icon={<SiFlask />} />
+      <SkillCard title="PHP" icon={<FaPhp />} />
+      <SkillCard title="Gitlab" icon={<FaGitlab />} />
+      <SkillCard title="PostgreSQL" icon={<SiPostgresql />} />
+      <SkillCard title="SQLServer" icon={<SiMicrosoftsqlserver />} />
+      <SkillCard title="MongoDB" icon={<SiMongodb />} />
+      <SkillCard title="Docker" icon={<FaDocker />} />
+      <SkillCard title="Linux" icon={<FaLinux />} />
+    </div>
+    <div className="cv-download">
+      <NRButton
+        as="link"
+        href="/cv_nicolas_richard.pdf"
+        label="Télécharger mon CV"
+        download
+      />
+    </div>
   </AboutContainer>
 );
 
