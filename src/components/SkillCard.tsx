@@ -13,7 +13,11 @@ const Card = styled.div`
   margin: 0.5rem;
   background-color: ${({ theme }) => theme.colors.headerBackground};
   color: ${({ theme }) => theme.colors.cardBackground};
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
   h4 {
     margin: 0;
     padding: 0;

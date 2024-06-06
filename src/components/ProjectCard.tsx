@@ -1,7 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import styled from "styled-components";
+import { useState } from "react";
+import styled, { keyframes } from "styled-components";
+
+const rotate = keyframes`
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+`;
 
 const Card = styled.div`
   display: flex;
@@ -11,12 +21,17 @@ const Card = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.borderColor};
   border-radius: 8px;
   padding: 1rem;
-  margin: 1rem 0;
+  margin: 1rem;
   background-color: ${({ theme }) => theme.colors.cardBackground};
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px 3px ${({ theme }) => theme.colors.borderColor};
+  transition: all 0.3s ease-in-out;
   &:hover {
-    background-color: ${({ theme }) => theme.colors.cardBackgroundHover};
+    box-shadow: 0 0 15px 10px ${({ theme }) => theme.colors.borderColor};
+    transform: scale(1.05);
     cursor: pointer;
+  }
+  &.rotate {
+    animation: ${rotate} 0.6s ease-in-out;
   }
   .image-container {
     width: 180px;
@@ -35,22 +50,30 @@ const ProjectCard = ({
   description,
   imageUrl,
   link,
-}: ProjectCardProps) => (
-  <Card>
-    <div className="image-container">
-      <Image
-        src={imageUrl}
-        alt={title}
-        width={0}
-        height={0}
-        sizes="100%"
-        style={{ width: "100%", height: "auto" }}
-      />
-    </div>
-    <h3>{title}</h3>
-    <p>{description}</p>
-    <a href={link}>En savoir plus</a>
-  </Card>
-);
+}: ProjectCardProps) => {
+  const [isRotating, setIsRotating] = useState(false);
+  const onCardClick = () => {
+    setIsRotating(true);
+    setTimeout(() => setIsRotating(false), 600);
+  };
+
+  return (
+    <Card onClick={onCardClick} className={isRotating ? "rotate" : ""}>
+      <div className="image-container">
+        <Image
+          src={imageUrl}
+          alt={title}
+          width={0}
+          height={0}
+          sizes="100%"
+          style={{ width: "100%", height: "auto" }}
+        />
+      </div>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <a href={link}>En savoir plus</a>
+    </Card>
+  );
+};
 
 export default ProjectCard;

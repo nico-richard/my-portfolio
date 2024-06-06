@@ -32,6 +32,15 @@ const AboutContainer = styled.section`
   flex-direction: column;
   align-items: center;
   position: relative;
+  box-shadow: 0 0 5px 3px ${({ theme }) => theme.colors.borderColor};
+  transition: all 0.3s ease-in-out;
+  @media (max-width: 768px) {
+    padding: 1rem;
+    padding-top: 80px;
+  }
+  &:hover {
+    box-shadow: 0 0 15px 10px ${({ theme }) => theme.colors.borderColor};
+  }
   .cv-download {
     position: absolute;
     top: 2rem;
@@ -42,6 +51,9 @@ const AboutContainer = styled.section`
     flex-wrap: wrap;
     justify-content: flex-start;
     width: 80%;
+    @media (max-width: 768px) {
+      width: 95%;
+    }
   }
 `;
 

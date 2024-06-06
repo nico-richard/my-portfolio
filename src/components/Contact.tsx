@@ -35,8 +35,8 @@ const Contact = () => (
       <NRInput as="textarea" label="Message" placeholder="Bonjour" />
       <NRButton label="Envoyer" />
     </form>
-    <p>Email: johndoe@example.com</p>
-    <p>Téléphone: +1234567890</p>
+    <p>Email: nicolas.richard42@hotmail.fr</p>
+    <p>Téléphone: 06 38 39 60 77</p>
     <ul>
       <li>
         <a href="https://linkedin.com/in/johndoe">LinkedIn</a>
