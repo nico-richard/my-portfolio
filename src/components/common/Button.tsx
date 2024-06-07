@@ -32,7 +32,6 @@ const NRButtonContainer = styled.section`
     border-radius: 5px;
     border: none;
     font-size: 1rem;
-    font-family: inherit;
     background-color: ${({ theme }) => theme.colors.tertiary};
     color: ${({ theme }) => theme.colors.headerBackground};
     &:hover {

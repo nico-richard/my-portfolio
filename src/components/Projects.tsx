@@ -6,6 +6,7 @@ import ProjectCard from "./ProjectCard";
 const ProjectsContainer = styled.section`
   padding: 2rem;
   background-color: ${({ theme }) => theme.colors.background};
+  text-align: center;
   .project-grid {
     display: grid;
     grid-template: 1fr 1fr 1fr / 1fr 1fr;
