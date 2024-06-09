@@ -34,6 +34,9 @@ const AboutContainer = styled.section`
   position: relative;
   box-shadow: 0 0 5px 3px ${({ theme }) => theme.colors.borderColor};
   transition: all 0.3s ease-in-out;
+  p {
+    text-align: justify;
+  }
   @media (max-width: 768px) {
     padding: 1rem;
     padding-top: 80px;
@@ -42,9 +45,7 @@ const AboutContainer = styled.section`
     box-shadow: 0 0 15px 10px ${({ theme }) => theme.colors.borderColor};
   }
   .cv-download {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
+    margin-top: 2rem;
   }
   .skills {
     display: flex;
@@ -60,7 +61,12 @@ const AboutContainer = styled.section`
 const About = () => (
   <AboutContainer id="about">
     <h2>À Propos de Moi</h2>
-    <p>Développeur passionné avec plus de 5 ans d&apos;expérience...</p>
+    <p>
+      Développeur Full Stack avec une spécialisation en front-end et une
+      expérience dans la création de solutions web innovantes et performantes.
+      Compétences en React et NodeJS, ainsi qu&apos;en gestion de projets,
+      assurant des produits robustes et efficaces.
+    </p>
     <h1>Compétences</h1>
     <h3>Front-end</h3>
     <div className="skills">

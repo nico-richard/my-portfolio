@@ -3,6 +3,8 @@
 import styled from "styled-components";
 import NRInput from "./common/Input";
 import NRButton from "./common/Button";
+import { CiLinkedin } from "react-icons/ci";
+import { FaGithub } from "react-icons/fa";
 
 const ContactContainer = styled.section`
   padding: 2rem;
@@ -37,17 +39,8 @@ const Contact = () => (
     </form>
     <p>Email: nicolas.richard42@hotmail.fr</p>
     <p>Téléphone: 06 38 39 60 77</p>
-    <ul>
-      <li>
-        <a href="https://linkedin.com/in/johndoe">LinkedIn</a>
-      </li>
-      <li>
-        <a href="https://github.com/johndoe">GitHub</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/johndoe">Twitter</a>
-      </li>
-    </ul>
+    <NRButton as="link" label="LinkedIn" icon={<CiLinkedin />} />
+    <NRButton as="link" label="GitHub" icon={<FaGithub />} />
   </ContactContainer>
 );
 

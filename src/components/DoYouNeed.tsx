@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const DoYouNeedContainer = styled.section`
@@ -47,58 +48,38 @@ const CardDescription = styled.p`
   color: ${({ theme }) => theme.colors.text};
 `;
 
-const needs = [
-  {
-    title: "Afficher des données",
-    description:
-      "Créez des interfaces dynamiques pour afficher et visualiser vos données.",
-    image: "/images/display-data.png",
-  },
-  {
-    title: "Gérer des stocks",
-    description:
-      "Développez des solutions de gestion de stocks efficaces et précises.",
-    image: "/images/manage-stock.png",
-  },
-  {
-    title: "Vendre des produits",
-    description:
-      "Mettez en place des plateformes de commerce électronique modernes et sécurisées.",
-    image: "/images/sell-products.png",
-  },
-  {
-    title: "Automatiser des tâches",
-    description:
-      "Automatisez vos processus pour gagner du temps et augmenter votre productivité.",
-    image: "/images/automate-tasks.png",
-  },
-  {
-    title: "Analyser des données",
-    description:
-      "Obtenez des insights précieux avec des outils d'analyse de données personnalisés.",
-    image: "/images/analyze-data.png",
-  },
-  {
-    title: "Améliorer l'expérience utilisateur",
-    description:
-      "Optimisez l'expérience utilisateur avec des interfaces intuitives et réactives.",
-    image: "/images/improve-ux.png",
-  },
-];
+interface Need {
+  title: string;
+  description: string;
+  image_url: string;
+}
 
-const DoYouNeed = () => (
-  <DoYouNeedContainer id="do-you-need">
-    <Title>Vous avez besoin de ?</Title>
-    <CardGrid>
-      {needs.map((need, index) => (
-        <Card key={index}>
-          <CardImage src={need.image} alt={need.title} />
-          <CardTitle>{need.title}</CardTitle>
-          <CardDescription>{need.description}</CardDescription>
-        </Card>
-      ))}
-    </CardGrid>
-  </DoYouNeedContainer>
-);
+const DoYouNeed = () => {
+  const [needs, setNeeds] = useState<Need[]>([]);
+
+  useEffect(() => {
+    const fetchNeeds = async () => {
+      const res = await fetch("/api/needs");
+      const data = await res.json();
+      setNeeds(data);
+    };
+    fetchNeeds();
+  }, []);
+
+  return (
+    <DoYouNeedContainer id="do-you-need">
+      <Title>Vous avez besoin de ?</Title>
+      <CardGrid>
+        {needs.map((need, index) => (
+          <Card key={index}>
+            <CardImage src={need.image_url} alt={need.title} />
+            <CardTitle>{need.title}</CardTitle>
+            <CardDescription>{need.description}</CardDescription>
+          </Card>
+        ))}
+      </CardGrid>
+    </DoYouNeedContainer>
+  );
+};
 
 export default DoYouNeed;

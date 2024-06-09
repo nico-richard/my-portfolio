@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
 interface NRButtonProps {
@@ -7,6 +7,7 @@ interface NRButtonProps {
   as?: "link" | "button";
   href?: string;
   download?: boolean;
+  icon?: ReactNode;
 }
 
 const pulseAnimation = keyframes`
@@ -28,6 +29,7 @@ const NRButtonContainer = styled.section`
   button,
   a {
     padding: 15px 20px;
+    margin: 0.5rem;
     display: inline-block;
     border-radius: 5px;
     border: none;
@@ -50,6 +52,7 @@ const NRButton = ({
   as = "button",
   href,
   download,
+  icon,
 }: NRButtonProps) => {
   const [isClicked, setIsClicked] = useState(false);
 
@@ -72,11 +75,11 @@ const NRButton = ({
           className={isClicked ? "clicked" : ""}
           download={download && href}
         >
-          {label}
+          {label} {icon}
         </a>
       ) : (
         <button onClick={handleClick} className={isClicked ? "clicked" : ""}>
-          {label}
+          {label} {icon}
         </button>
       )}
     </NRButtonContainer>

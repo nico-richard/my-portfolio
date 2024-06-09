@@ -8,7 +8,6 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     background-color: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
-    user-select: none;
   }
 
   a {

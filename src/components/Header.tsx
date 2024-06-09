@@ -34,28 +34,77 @@ const HeaderContainer = styled.header`
       filter: invert(1);
     }
   }
-  h1 {
-    letter-spacing: 0.4rem;
-    font-size: 3rem;
-    font-weight: 500;
-    margin: 0 0 0 2rem;
-    span {
-      white-space: nowrap;
+  .title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .title {
+      letter-spacing: 0.4rem;
+      font-size: 3rem;
+      font-weight: 500;
+      margin: 0;
+      span {
+        white-space: nowrap;
+      }
+    }
+    .separator {
+      margin: 0 2rem;
     }
   }
   h3 {
     margin: 0;
+    margin-top: 20px;
     font-size: 1.5rem;
     font-weight: 100;
+  }
+  @media (max-width: 1330px) {
+    .title {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  @media (max-width: 768px) {
+    .illustration {
+      width: 100px;
+      height: 100px;
+    }
+    .title {
+      span {
+        font-size: 2.5rem;
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    padding: 5rem 2rem 2rem 2rem;
+    .image {
+      width: 130px;
+      height: 130px;
+    }
+    .title-container {
+      .title {
+        span {
+          font-size: 1.3rem;
+        }
+      }
+      h3 {
+        font-size: 0.8rem;
+      }
+    }
   }
 `;
 
 const Header = () => (
   <HeaderContainer>
-    <h1>
-      <span>Nicolas RICHARD</span> - <span>Full Stack Developer</span>
-    </h1>
-    <h3>Creating modern and responsive web applications.</h3>
+    <div className="title-container">
+      <div className="title">
+        <span>Nicolas RICHARD</span>
+        <span className="separator">-</span>
+        <span>Full Stack Developer</span>
+      </div>
+      <h3>Creating modern and responsive web applications.</h3>
+    </div>
     <Image
       src="/images/profile.jpg"
       alt="Profile Picture"
